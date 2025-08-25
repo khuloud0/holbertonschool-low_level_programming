@@ -7,6 +7,7 @@
  */
 int main(void)
 {
-    puts("\"Programming is like building a multilingual puzzle");
-    return (0);
+	/* Tab before puts and before return (لا مسافات) */
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
