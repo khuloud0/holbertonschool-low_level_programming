@@ -2,16 +2,21 @@
 
 /**
  * main - Entry point
- * Description: Print the alphabet in lowercase using putchar
+ *
+ * Description: Prints the alphabet in lowercase
+ * using putchar only twice
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-    char c;
+	char c;
 
-    for (c = 'a'; c <= 'z'; c++)
-        putchar(c);
+	for (c = 'a'; c <= 'z'; c++)
+	{
+		putchar(c);
+	}
+	putchar('\n');
 
-    putchar('\n');
-    return (0);
+	return (0);
 }
