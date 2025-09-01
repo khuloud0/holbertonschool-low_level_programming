@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- * puts2 - prints every other character of a string,
- *         starting with the first character, then a newline
+ * puts2 - prints every other character of a string, starting with the first
  * @str: pointer to the string
  *
  * Return: void
@@ -13,7 +12,7 @@ void puts2(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (i % 2 == 0)   /* اطبع فقط الحروف في المواقع الزوجية */
+		if ((i % 2) == 0)
 			_putchar(str[i]);
 	}
 	_putchar('\n');
