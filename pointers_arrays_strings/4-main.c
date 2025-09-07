@@ -1,15 +1,23 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * main - check the code
+ * main - test _strpbrk function
  *
- * Return: Always 0.
+ * Return: Always 0
  */
 int main(void)
 {
-    char *str;
+	char *str = "Holberton School";
+	char *accept = "Sc";
+	char *result;
 
-    str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
-    print_rev(str);
-    return (0);
+	result = _strpbrk(str, accept);
+
+	if (result != NULL)
+		printf("First matching character: %c\n", *result);
+	else
+		printf("No matching character found\n");
+
+	return (0);
 }
