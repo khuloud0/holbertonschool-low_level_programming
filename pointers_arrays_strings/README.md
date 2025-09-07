@@ -1,6 +1,8 @@
-# Pointers, Arrays and Strings
+# 0-memset
 
-This project covers:
-- How to use pointers
-- How to manipulate arrays
-- How to work with strings in C
+## Description
+This project contains a custom implementation of the `memset` function in C.
+
+## Function Prototype
+```c
+char *_memset(char *s, char b, unsigned int n);

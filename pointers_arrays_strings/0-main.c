@@ -1,22 +1,16 @@
 #include "main.h"
 #include <stdio.h>
 
-/**
- * main - check the code for strcat
- *
- * Return: Always 0.
- */
 int main(void)
 {
-	char s1[98] = "Hello ";
-	char s2[] = "World!\n";
-	char *ptr;
+    char buffer[10];
+    int i;
 
-	printf("%s\n", s1);
-	printf("%s", s2);
-	ptr = _strcat(s1, s2);
-	printf("%s", s1);
-	printf("%s", s2);
-	printf("%s", ptr);
-	return (0);
+    _memset(buffer, 'X', 10);
+
+    for (i = 0; i < 10; i++)
+        printf("%c", buffer[i]);
+    printf("\n");
+
+    return (0);
 }
