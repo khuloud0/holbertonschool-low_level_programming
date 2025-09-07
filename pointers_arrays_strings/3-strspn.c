@@ -5,7 +5,8 @@
  * @s: string to search
  * @accept: string containing accepted characters
  *
- * Return: number of bytes in initial segment of s containing only chars from accept
+ * Return: number of bytes in initial segment of s
+ *         containing only chars from accept
  */
 unsigned int _strspn(char *s, char *accept)
 {
