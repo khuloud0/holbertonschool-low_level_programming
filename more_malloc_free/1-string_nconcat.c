@@ -1,32 +1,29 @@
-#include <stdlib.h>
-#include <string.h>
+#include "main.h"
 
-/**
- * string_nconcat - concatenates s1 with first n bytes of s2
- * @s1: first string
- * @s2: second string
- * @n: number of bytes to copy from s2
- * Return: pointer to newly allocated memory, or NULL on failure
- */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-    unsigned int len_s1 = (s1) ? strlen(s1) : 0;
-    unsigned int len_s2 = (s2) ? strlen(s2) : 0;
-    unsigned int i;
-    char *new_str;
+    unsigned int len1 = 0, len2 = 0, i, j;
+    char *result;
 
-    if (n > len_s2)
-        n = len_s2;
+    if (s1)
+        while (s1[len1])
+            len1++;
+    if (s2)
+        while (s2[len2])
+            len2++;
 
-    new_str = malloc(len_s1 + n + 1);
-    if (!new_str)
+    if (n >= len2)
+        n = len2;
+
+    result = malloc_checked(len1 + n + 1);
+    if (!result)
         return NULL;
 
-    for (i = 0; i < len_s1; i++)
-        new_str[i] = s1[i];
-    for (i = 0; i < n; i++)
-        new_str[len_s1 + i] = s2[i];
-    new_str[len_s1 + n] = '\0';
+    for (i = 0; i < len1; i++)
+        result[i] = s1[i];
+    for (j = 0; j < n; j++)
+        result[i + j] = s2[j];
+    result[i + j] = '\0';
 
-    return new_str;
+    return result;
 }
