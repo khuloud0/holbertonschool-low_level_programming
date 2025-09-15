@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 int main(void)
@@ -14,6 +15,10 @@ int main(void)
     free(s);
 
     s = string_nconcat("Hello", "", 12);
+    printf("%s\n", s);
+    free(s);
+
+    s = string_nconcat("Hello", NULL, 12);
     printf("%s\n", s);
     free(s);
 
