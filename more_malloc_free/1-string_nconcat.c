@@ -5,14 +5,15 @@
  * string_nconcat - concatenates two strings
  * @s1: first string
  * @s2: second string
- * @n: number of bytes from s2 to concatenate
+ * @n: maximum number of bytes of s2 to concatenate
  *
- * Return: pointer to new string, NULL if fail
+ * Return: pointer to newly allocated memory with s1 followed by s2,
+ *         or NULL if it fails
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
     unsigned int i, j, len1 = 0, len2 = 0;
-    char *s;
+    char *new_str;
 
     if (s1 == NULL)
         s1 = "";
@@ -27,16 +28,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     if (n >= len2)
         n = len2;
 
-    s = malloc(sizeof(char) * (len1 + n + 1));
-    if (s == NULL)
+    new_str = malloc(sizeof(char) * (len1 + n + 1));
+    if (new_str == NULL)
         return (NULL);
 
     for (i = 0; i < len1; i++)
-        s[i] = s1[i];
+        new_str[i] = s1[i];
 
     for (j = 0; j < n; j++)
-        s[i + j] = s2[j];
+        new_str[i + j] = s2[j];
 
-    s[i + j] = '\0';
-    return (s);
+    new_str[i + j] = '\0';
+
+    return (new_str);
 }
