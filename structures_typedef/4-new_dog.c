@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "dog.h"
 
 /**
@@ -9,44 +8,47 @@
  * @age: age of the dog
  * @owner: owner of the dog
  *
- * Return: pointer to the new dog_t, or NULL on failure
+ * Return: pointer to new dog_t, or NULL on failure
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
 	char *name_copy, *owner_copy;
-	size_t len_name, len_owner;
+	size_t i, len_name = 0, len_owner = 0;
 
 	d = malloc(sizeof(dog_t));
-	if (d == NULL)
+	if (!d)
 		return (NULL);
 
-	len_name = name ? strlen(name) + 1 : 0;
-	len_owner = owner ? strlen(owner) + 1 : 0;
-
-	if (len_name)
+	if (name)
 	{
-		name_copy = malloc(len_name);
+		while (name[len_name])
+			len_name++;
+		name_copy = malloc(len_name + 1);
 		if (!name_copy)
 		{
 			free(d);
 			return (NULL);
 		}
-		strcpy(name_copy, name);
+		for (i = 0; i <= len_name; i++)
+			name_copy[i] = name[i];
 	}
 	else
 		name_copy = NULL;
 
-	if (len_owner)
+	if (owner)
 	{
-		owner_copy = malloc(len_owner);
+		while (owner[len_owner])
+			len_owner++;
+		owner_copy = malloc(len_owner + 1);
 		if (!owner_copy)
 		{
 			free(name_copy);
 			free(d);
 			return (NULL);
 		}
-		strcpy(owner_copy, owner);
+		for (i = 0; i <= len_owner; i++)
+			owner_copy[i] = owner[i];
 	}
 	else
 		owner_copy = NULL;
