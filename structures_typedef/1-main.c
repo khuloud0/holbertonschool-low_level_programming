@@ -1,22 +1,16 @@
-#include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include "dog.h"
 
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-    char str[] = "Holberton School!";
-    char *dup;
+    struct dog my_dog;
 
-    dup = _strdup(str);
-    if (dup == NULL)
-    {
-        printf("Failed to allocate memory\n");
-        return (1);
-    }
-
-    printf("Original: %s\n", str);
-    printf("Duplicate: %s\n", dup);
-
-    free(dup);
+    init_dog(&my_dog, "Poppy", 3.5, "Bob");
+    printf("Name: %s\nAge: %.1f\nOwner: %s\n", my_dog.name, my_dog.age, my_dog.owner);
     return (0);
 }

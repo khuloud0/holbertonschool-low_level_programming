@@ -1,32 +1,19 @@
-#include "main.h"
-#include <stdlib.h>
+#include "dog.h"
+#include <stddef.h>
 
 /**
- * _strdup - returns a pointer to a newly allocated space in memory,
- *           which contains a copy of the string given as a parameter
- * @str: string to duplicate
- *
- * Return: pointer to duplicated string, or NULL if str = NULL or malloc fails
+ * init_dog - initializes a variable of type struct dog
+ * @d: pointer to struct dog
+ * @name: dog's name
+ * @age: dog's age
+ * @owner: dog's owner
  */
-char *_strdup(char *str)
+void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-    char *dup;
-    unsigned int i, len = 0;
-
-    if (str == NULL)
-        return (NULL);
-
-    while (str[len])
-        len++;
-
-    dup = malloc(sizeof(char) * (len + 1));
-    if (dup == NULL)
-        return (NULL);
-
-    for (i = 0; i < len; i++)
-        dup[i] = str[i];
-
-    dup[len] = '\0';
-
-    return (dup);
+    if (d != NULL)
+    {
+        d->name = name;
+        d->age = age;
+        d->owner = owner;
+    }
 }
