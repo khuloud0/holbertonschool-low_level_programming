@@ -5,11 +5,11 @@ int main(void)
 {
     struct dog my_dog;
 
-    init_dog(&my_dog, "Buddy", 3.5, "Alice");
+    init_dog(&my_dog, "Ghost", 4.75, "Jon Snow");
 
-    printf("Dog name: %s\n", my_dog.name);
-    printf("Dog age: %.1f\n", my_dog.age);
-    printf("Dog owner: %s\n", my_dog.owner);
+    printf("Name: %s\n", my_dog.name);
+    printf("Age: %.2f\n", my_dog.age);
+    printf("Owner: %s\n", my_dog.owner);
 
-    return 0;
+    return (0);
 }
