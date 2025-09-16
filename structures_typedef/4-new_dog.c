@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include "dog.h"
 
+/**
+ * str_copy - makes a copy of a string
+ * @str: string to copy
+ *
+ * Return: pointer to the new string, or NULL if str is NULL or malloc fails
+ */
 char *str_copy(char *str)
 {
 	size_t len = 0, i;
@@ -22,6 +28,14 @@ char *str_copy(char *str)
 	return (copy);
 }
 
+/**
+ * new_dog - creates a new dog
+ * @name: name of the dog
+ * @age: age of the dog
+ * @owner: owner of the dog
+ *
+ * Return: pointer to new dog_t, or NULL on failure
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
