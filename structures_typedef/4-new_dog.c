@@ -1,61 +1,51 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "dog.h"
 
-/**
- * new_dog - creates a new dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: owner of the dog
- *
- * Return: pointer to new dog_t, or NULL on failure
- */
+char *str_copy(char *str)
+{
+	size_t len = 0, i;
+	char *copy;
+
+	if (!str)
+		return (NULL);
+
+	while (str[len])
+		len++;
+
+	copy = malloc(len + 1);
+	if (!copy)
+		return (NULL);
+
+	for (i = 0; i <= len; i++)
+		copy[i] = str[i];
+
+	return (copy);
+}
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
-	char *name_copy, *owner_copy;
-	size_t i, len_name = 0, len_owner = 0;
 
 	d = malloc(sizeof(dog_t));
 	if (!d)
 		return (NULL);
 
-	if (name)
+	d->name = str_copy(name);
+	if (name && !d->name)
 	{
-		while (name[len_name])
-			len_name++;
-		name_copy = malloc(len_name + 1);
-		if (!name_copy)
-		{
-			free(d);
-			return (NULL);
-		}
-		for (i = 0; i <= len_name; i++)
-			name_copy[i] = name[i];
+		free(d);
+		return (NULL);
 	}
-	else
-		name_copy = NULL;
 
-	if (owner)
+	d->owner = str_copy(owner);
+	if (owner && !d->owner)
 	{
-		while (owner[len_owner])
-			len_owner++;
-		owner_copy = malloc(len_owner + 1);
-		if (!owner_copy)
-		{
-			free(name_copy);
-			free(d);
-			return (NULL);
-		}
-		for (i = 0; i <= len_owner; i++)
-			owner_copy[i] = owner[i];
+		free(d->name);
+		free(d);
+		return (NULL);
 	}
-	else
-		owner_copy = NULL;
 
-	d->name = name_copy;
 	d->age = age;
-	d->owner = owner_copy;
 
 	return (d);
 }
