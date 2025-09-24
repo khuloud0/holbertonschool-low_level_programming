@@ -1,7 +1,5 @@
 #include "variadic_functions.h"
-
-/* Prototype of print_all */
-void print_all(const char * const format, ...);
+#include <stddef.h>
 
 int main(void)
 {
