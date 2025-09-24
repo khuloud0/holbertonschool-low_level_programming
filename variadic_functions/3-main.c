@@ -5,10 +5,12 @@ void print_all(const char * const format, ...);
 
 int main(void)
 {
-	print_all("ceis", 'A', 10, 3.14, "Hello");
-	print_all("sfc", NULL, 2.718, 'B');
-	print_all("xyz", 1, 2, 3);
+	print_all("fcsi", 3.14435, 'H', "#Cisfun", 0);
+	print_all("mnbvfqcepolsbxzi", 3.14435, 'H', "#Cisfun", 0);
+	print_all("qwertyuopadghjklzxvbnm");
+	print_all("");
 	print_all(NULL);
+	print_all("fcsi", 3.14435, 'H', NULL, 402);
 
 	return 0;
 }
