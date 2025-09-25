@@ -40,6 +40,7 @@ void print_float(va_list args, char *sep)
 void print_string(va_list args, char *sep)
 {
 	char *str = va_arg(args, char *);
+
 	if (!str)
 		str = "(nil)";
 	printf("%s%s", sep, str);
