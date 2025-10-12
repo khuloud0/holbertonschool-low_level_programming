@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 	while ((rd = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		wr = write(fd_to, buffer, rd);
-		if (wr != rd)
+		if (wr == -1 || wr != rd)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close_fd(fd_from);
@@ -72,6 +72,5 @@ int main(int argc, char *argv[])
 
 	close_fd(fd_from);
 	close_fd(fd_to);
-
 	return (0);
 }
