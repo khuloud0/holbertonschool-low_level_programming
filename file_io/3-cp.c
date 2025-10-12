@@ -50,11 +50,8 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	while (1)
+	while ((rd = read(fd_from, buffer, BUFFER_SIZE)) != 0)
 	{
-		rd = read(fd_from, buffer, BUFFER_SIZE);
-		if (rd == 0)
-			break;
 		if (rd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
